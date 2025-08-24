@@ -8,6 +8,10 @@
 #include <string>
 #include <vector>
 
+ImageProcessor::ImageProcessor(const std::string &inputDir,
+                               const std::string &outputDir)
+    : inputDir(inputDir), outputDir(outputDir) {}
+
 std::vector<std::string>
 ImageProcessor::getImagePaths(const std::string &path) {
   std::vector<std::string> imagePaths{};
@@ -20,9 +24,6 @@ ImageProcessor::getImagePaths(const std::string &path) {
   return imagePaths;
 }
 
-ImageProcessor::ImageProcessor(const std::string &inputDir,
-                               const std::string &outputDir)
-    : inputDir(inputDir), outputDir(outputDir) {}
 void ImageProcessor::getEdgesForImage(const std::string &imagePath,
                                       bool preview, bool save) {
   cv::Mat image = cv::imread(imagePath);
@@ -45,6 +46,7 @@ void ImageProcessor::getEdgesForImage(const std::string &imagePath,
     cv::imwrite(outputFilePath, edges);
   }
 }
+
 void ImageProcessor::processImages(int numOfThreads) {
   std::vector<std::string> paths = getImagePaths(inputDir);
   std::vector<std::future<void>> futures;

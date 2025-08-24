@@ -1,4 +1,4 @@
-# 📷 ImageProcessor
+# 📷 ImageProcessor(OpenCV + C++ Multi-threading)
 
 A simple C++ project for loading, processing, and saving images.  
 The project is structured with a clean separation of headers (`include/`), source files (`src/`), input images (`images/`), and processed output (`output/`).
@@ -33,7 +33,7 @@ The project is structured with a clean separation of headers (`include/`), sourc
 ```bash
 # Clone the repo
 git clone https://github.com/MahmoudMostafaTayee/ImageProcessor
-cd cpp_image_processor
+cd ImageProcessor
 
 # Create a build directory
 mkdir build && cd build
@@ -43,3 +43,7 @@ cmake ..
 
 # Build
 cmake --build .
+
+# To run the executable
+cd .. && ./ImageProcessor
+```
